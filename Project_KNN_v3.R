@@ -1,6 +1,7 @@
 library(class)
 library(dplyr)
 library(combinat)
+library(ggplot2)
 data <- data_set
 variables_total <- c('id', 'amount_tsh', 'date_recorded', 'funder', 'gps_height', 'installer', 'longitude', 'latitude', 'wpt_name', 'num_private', 'subvillage', 'region', 'region_code', 'lga', 'ward', 'population', 'public_meeting', 'recorded_by', 'scheme_management', 'scheme_name', 'permit', 'construction_year', 'extraction_type', 'extraction_type_group','extraction_type_class', 'management', 'payment', 'payment_type', 'water_quality', 'quantity_group', 'quantity_group', 'source','source_type', 'source_class', 'waterpoint_type', 'waterpoint_type_group')
 minValue <- 1

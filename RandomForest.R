@@ -1,4 +1,5 @@
 library(randomForest)
+library(ggplot2)
 set.seed(100)
 data <- Training_Set_Value
 train <- sample(nrow(data), 0.7*nrow(data), replace = FALSE)
@@ -25,6 +26,9 @@ for(k in 1:as.integer(ncol(Test_Set_Data) -1 ))
   test[is.na(test)] = 0
   test[,k] <- as.factor(as.integer(as.integer(test[,k])/length(levels(test[,k])) * 10))
 }
+labels <- predict(model1, data)
+
+ggplot(data= data, mapping = aes(x = 'quantity_group',y = 'sub_village', color=ifelse(labels==data$status_group, 'Correct Prediction', 'Incorrect Prediction'))) + geom_jitter() + labs(color="Predicted Outcome") + ggtitle("Random Forest")
 
 labels <- predict(model1, test)
 
